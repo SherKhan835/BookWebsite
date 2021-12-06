@@ -1,0 +1,50 @@
+
+<div style="display: inline-flex; color: #303030; padding:10px; align-content: center;
+                  margin:10px;
+                font-size:20px;
+                text-align:center;
+                 border-radius:10px; ">
+{% if posts.has_other_pages %}
+   {% if posts.has_previous %}
+     <div style="border:solid 1px #d9d9d9; padding:10px;
+                  margin:10px;
+                font-size:15px;
+                text-align:center;
+                 border-radius:10px; "><a href="?page={{ posts.previous_page_number }}&q={{ query }}" style="color: #66a992">«</a></div>
+   {% else %}
+     <div class="disabled" style="border:solid 1px #d9d9d9; padding:10px;
+                  margin:10px;
+                font-size:15px;
+                text-align:center;
+                 border-radius:10px; "><span>«</span></div>
+   {% endif %}
+   {% for i in posts.paginator.page_range %}
+     {% if posts.number == i %}
+    <div class="active" style="border:solid 1px #d9d9d9; padding:10px;
+                  margin:10px;
+                font-size:15px;
+                text-align:center;
+                 border-radius:10px; "><span>{{ i }} <span class="sr-only">(current)</span></span></div>
+     {% else %}
+    <div style="border:solid 1px #d9d9d9; padding:10px;
+                  margin:10px;
+                font-size:15px;
+                text-align:center;
+                 border-radius:10px; "><a href="?page={{ i }}&q={{query}}" style="color: #66a992">{{ i }}</a></div>
+     {% endif %}
+   {% endfor %}
+   {% if posts.has_next %}
+     <div style="border:solid 1px #d9d9d9; padding:10px;
+                  margin:10px;
+                font-size:15px;
+                text-align:center;
+                 border-radius:10px; "><a href="?page={{ posts.next_page_number }}&q={{ query }}" style="color: #66a992">»</a></div>
+   {% else %}
+     <div class="disabled" style="border:solid 1px #d9d9d9; padding:10px;
+                  margin:10px;
+                font-size:15px;
+                text-align:center;
+                 border-radius:10px; "><span>»</span></div>
+   {% endif %}
+  {% endif %}
+</div>

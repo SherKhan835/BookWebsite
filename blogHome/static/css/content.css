@@ -1,0 +1,11 @@
+.mater a {
+  text-decoration: none;
+  color: #303030;
+}
+
+
+
+.mater a:hover{
+   color: #66a992;
+}
+

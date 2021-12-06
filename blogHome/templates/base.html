@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Pdf Novels and Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+      <link href="{% static 'css/header.css' %}" rel="stylesheet">
+      <link href="{% static 'css/footer.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+<div class="site-logo">
+    <div class="logo">
+        <a href="{% url 'blogHome' %}">
+        <img src="{% static 'logo.png' %}" alt="logo" style="max-height: 100px; max-width: 350px">
+        </a>
+    </div>
+</div>
+
+<section>
+    <div class="rt-container">
+          <div class="col-rt-12">
+              <div class="Scriptcontent">
+
+            <!-- Navbar HTML -->
+    		<div class='content-wrapper'>
+  <div class='navmenu'>
+   <form action='{% url 'search_results' %}' autocomplete='off' id='search-form' method='get'>
+       {% csrf_token %}
+<input name='q' placeholder='Search here...' size='15' type='text'/>
+<input id='button-submit' type='submit' value='Search'/>
+        </form>
+    <span id='menu'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAC9JREFUeNpi/P//PwM1AQsQU9VEJgYqg8FvICgMGUeel0eTzWiyGU02Qz/ZAAQYAOPcBjEdYroKAAAAAElFTkSuQmCC'  /></span>
+    <nav id='navbar' itemprop='mainEntity' itemscope='itemscope' itemtype='https://schema.org/SiteNavigationElement'>
+    <ul class='navbar'>
+        <li><a href='{% url 'blogHome' %}' itemprop='url' title='Home'><span itemprop='name'>Home</span></a></li>
+        <li><a href='{% url 'urdu_novels' %}' itemprop='url' title='Home'><span itemprop='name'>Urdu Novels</span></a></li>
+        <li><a href='{% url 'educational_books' %}' itemprop='url' title='Home'><span itemprop='name'>Educational Books</span></a></li>
+        <li id='sub-menu'><span itemprop='name'>Novels Category</span>
+                <ul class="sub-menu">
+        <li><a href='#4' itemprop='url' title='Home'><span itemprop='name'>Action</span></a></li>
+         <li><a href='#4' itemprop='url' title='Home'><span itemprop='name'>Social</span></a></li>
+         <li><a href='#4' itemprop='url' title='Home'><span itemprop='name'>Historical</span></a></li>
+         <li><a href='#4' itemprop='url' title='Home'><span itemprop='name'>Science Fiction</span></a></li>
+        <li><a href='#5' itemprop='url' title='Home'><span itemprop='name'>Horror</span></a></li>
+        <li><a href='#6' itemprop='url' title='Home'><span itemprop='name'>Romantic</span></a></li>
+      </ul>
+		</li>
+
+          <li><a href='{% url 'islamic_books' %}' itemprop='url' title='Home'><span itemprop='name'>Islamic Books</span></a></li>
+             </ul>
+</nav>
+</div>
+</div>
+<div style='clear: both;'/>
+       <!-- End Navbar HTML -->
+    		</div>
+		</div>
+    </div>
+</section>
+<script>
+    document.getElementById('menu').addEventListener('click', function () {
+        var nav = document.getElementsByTagName('nav')[0];
+        if (nav.style.display == 'block') {
+            nav.style.display = 'none';
+        } else {
+            nav.style.display = 'block';
+        }
+    }, false);
+
+    </script>
+
+    <div id="dynamic">
+      {% block start %}
+      {% endblock %}
+    </div>
+
+
+      <footer>
+        <div class="main-content">
+          <div class="left box">
+            <h2>Privacy Policy</h2>
+            <div class="content">
+              <p>Users may find advertising or other content on our Site that link to the sites and services of our partners, suppliers, advertisers, sponsors, licensors and other third parties. We do not control the content or links that appear on these sites and are not responsible for the practices employed by websites linked to or from our Site. In addition, these sites or services, including their content and links, may be constantly changing. These sites and services may have their own privacy policies and customer service policies.</p>
+              <div class="social">
+                <a href="https://facebook.com/coding.np" style="color: #d9d9d9" ><span class="fab fa-facebook-f"></span></a>
+                <a href="#"><span class="fab fa-twitter" style="color: #d9d9d9"></span></a>
+                <a href="https://instagram.com/coding.np" style="color: #d9d9d9"><span class="fab fa-instagram"></span></a>
+                <a href="https://youtube.com/c/codingnepal" style="color: #d9d9d9"><span class="fab fa-youtube"></span></a>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="right box">
+            <h2>Contact us</h2>
+            <div class="content">
+              <form action="#">
+                <div class="email">
+                  <div class="text">Email *</div>
+                  <input type="email" required>
+                </div>
+                <div class="msg">
+                  <div class="text">Message *</div>
+                  <textarea rows="2" cols="25" required></textarea>
+                </div>
+                <div class="btn">
+                  <button type="submit">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <center>
+            <span class="credit">Free <a href="#">Pdf Books</a> | </span>
+            <span class="far fa-copyright"></span><span> 2022 All rights reserved.</span>
+          </center>
+        </div>
+      </footer>
+  </body>
+</html>
+
+
+{% load static %}
